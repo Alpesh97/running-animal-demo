@@ -1,0 +1,58 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Ranning Animal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=No">
+    <style type="text/css">
+    .wrapper {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    a {
+        display: inline-block;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <a href="#"><img id="thisImg" src="images/image01.png" alt="image01"></a>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var dataArray = new Array();
+        var thisId = 0;
+        var timeInterval;
+        dataArray[0] = "images/image02.png";
+        dataArray[1] = "images/image03.png";
+        dataArray[2] = "images/image04.png";
+        dataArray[3] = "images/image05.png";
+        dataArray[4] = "images/image06.png";
+        dataArray[5] = "images/image07.png";
+        dataArray[6] = "images/image01.png";
+
+        $("a").on("mouseenter", function() {
+
+         timeInterval = setInterval(function() {
+                $('#thisImg').attr('src', dataArray[thisId]);
+                thisId++;
+                if (thisId == 6) thisId = 0;
+            }, 100);
+
+        });
+        $("a").on("mouseleave", function() {
+            clearInterval(timeInterval);
+            $('#thisImg').attr('src', dataArray[thisId]);
+        });
+    });
+    </script>
+</body>
+
+</html>
